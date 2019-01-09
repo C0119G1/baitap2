@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>"hello"</title> 
+</head>
+<body> 
+    <table>         
+       <tr>
+           <th>Amount</th>
+           <th>From Currency</th>
+           <th>To Currency</th>
+       </tr>
+       <tr>
+            <td><input id="amount" ></td>
+           <td><select id="fromcurrency" style="width:150px;"> 
+               <option value="23000">Vietnam</option>
+               <option value="1">USD</option>
+           </select>
+        </td>
+        <td>
+            <select id="Tocurrency" style="width:150px;"> 
+                    <option value="23000">Vietnam</option>
+                    <option value="1">USD</option>
+            </select>
+        </td>
+        <td><button onclick="btnCalClick();">Convert </button></td>
+        </tr>
+    </table>
+    <h3 id="d"></h3>
+    <script>
+        function btnCalClick(){
+            var tien=parseInt(document.getElementById("amount").value);
+            var Doitien= document.getElementById("Tocurrency").value/document.getElementById("fromcurrency").value;
+            var  tinhtien=tien*Doitien;
+            document.getElementById("d").innerHTML= "Số tiền là: "+ tinhtien;
+        }
+    </script>      
+ <body>   
+<html>
