@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>"Hello"</title>
+      
+</head>
+<body> 
+    <table>
+    <tr> <th><b>Sample Screen</b></th></tr>
+    <tr> 
+         <th><input id="kq"></th>
+         <th> <input type="button"  id="sonhap"value="ADD" onclick="nhapvao()"></th>
+         <th> <input type="button"  id="sohienthi"value="Display" onclick="hienthi()"></th>
+    </tr>
+</table>
+    <p id="demo"></p>
+<script >
+       var x=0;
+       var array = Array();
+   function nhapvao() {
+       
+       array[x]= document.getElementById("kq").value;
+       alert("Bạn vừa nhập vào là:" +""+ array[x]+''+" lưu tại"+''+ x);
+       x++;
+       document.getElementById("kq").value="";
+   }
+   function hienthi() {
+        var e = "<hr/>";  
+        for (var i=0; i<array.length; i++) {
+            e += "Bạn vừa nhập vào là " + i + " = " + array[i] + "<br/>";
+        }
+        document.getElementById("demo").innerHTML = e;
+}
+
+
+   </script>
+<body> 
+<html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+     <!doctype html>
+     <html>
+     <head>
+
+     </head>
+<body>
+         
+     
+     <h1> Temperature converter </h1>
+     <h3>Type a value in the Fahrenheit field to converte the value to Celcius:</h3>
+     
+     
+     <b>Fahrenheit:</b> 
+     <input id="nhapvao" placeholder="Bạn hãy nhập số vào đây">       
+     <input type="button" value="Conver"  onclick="conver()">
+     <p id="demo"></p>   
+<script>
+     function conver() {
+          var fahreheit=document.getElementById("nhapvao").value;
+          var celcius= (fahreheit - 32)/1.8;
+          document.getElementById("demo" ).innerHTML=(" Độ Celcius:  "+ celcius);
+          }
+</script>
+
+<body> 
+<html>
