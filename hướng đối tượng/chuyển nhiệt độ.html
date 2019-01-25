@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+    <script>
+    class Temperature {
+        constructor (doC) {
+            this._doC = doC;
+        }
+        getdoCsangF() {
+            return (this._doC*1.8) + 32;
+        }
+        getdoCsangKevin() {
+            return ( this._doC + 273.15)
+        }
+
+    }
+    var Temperature1 = new Temperature (25)
+    Temperature1.getdoCsangF();
+    Temperature1.getdoCsangKevin();
+    alert(" Chuyển độ C sang độ F có kết quả là  :" +Temperature1.getdoCsangF());
+    alert(" Chuyển độ C sang độ K có kết quả là  :" +Temperature1.getdoCsangKevin());
+</script>
+</body>
+</html>

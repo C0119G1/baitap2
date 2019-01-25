@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+    <canvas id="myCanvas" width="1026px" height="1780px" style="border:1px solid #832424;">
+
+    <script type="text/javascript">
+    class Rectangle {
+        constructor(chieudai,chieurong) {
+        this._chieudai = chieudai;
+        this._chieurong = chieurong;
+        this._vitri1 = Math.floor(Math.random())*500;
+        this._vitri2 = Math.floor(Math.random())*1000;
+        }
+        changeRectangle () {
+            var txt = document.getElementById("myCanvas").getContext("2d");
+            txt.fillStyle = this.color;
+            txt.fillRect (this._vitri1, this._vitri2, this._chieudai,this._chieurong);
+        }
+    
+        getdientich() {
+            return (this._chieudai * this._chieurong);
+        }
+        getchuvi() {
+            return (this._chieudai + this._chieurong) * 2;
+        }
+    }
+
+    var rectangle1 = new Rectangle(500,200)
+    rectangle1.changeRectangle ()
+    rectangle1.getdientich();
+    rectangle1.getchuvi();
+    alert (" Diện tích hình chữ nhật là : " + rectangle1.getdientich());
+    alert (" Chu vi hình chữ nhật là : " + rectangle1.getchuvi());
+    
+ console.log(rectangle1);
+
+        
+
+      
+    
+
+    
+
+
+          
+      
+   
+       
+
+</script>
+</body>
+</html>

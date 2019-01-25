@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h2>Nokia</h2>
+    <label>Status:</label>
+    <label id="statusnokia"></label><br>
+    <label>Pin:</label>
+    <label id="sacpinnokia"></label>
+    <hr>
+    <textarea rows="4" cols="50" id="messmiss1" placeholder="Soạn tin nhắn"></textarea> </br>
+    <input type="submit" id="sendmes" value="Sent" onclick="guitinnhan()">
+    <input type="submit" id="NokiaHTD" value=" HộpThưĐi" >
+    <input type="submit" value="Sạc" onclick="sacnokia()">
+    <input type="submit" value="ON/OFF" onclick="battat()">
+    <br>
+    <br>
+
+    <h2>Iphone X</h2>
+    <label>Status:</label>
+    <label id="statusiphone"></label><br>
+    <label>Pin:</label>
+    <label id="sacpiniphone"></label>
+    <hr>
+    <textarea rows="4" cols="50" id="messmiss2" ></textarea> </br>
+    <input type="submit" value="Hộp Thư Đến" id="messden" onclick="iphonexemtn()">
+    <input type="submit" value="Sạc" onclick="saciphone()">
+    
+    
+    <script>
+        
+        class Mobile{
+            constructor(_type, _pin, _status) {
+                this.type = _type;
+                this.pin = _pin;
+                this.status = _status;
+                this.messagegui=[];
+                this.messageNhan =[];
+                this.messageTam=[];
+            }
+                isstatus() {
+                    if (this.status===0) {
+                        return "Điện thoại tắt";
+                    } else {
+                    if (this.status) {
+                    return "Điện thoại đang hoạt động";
+                    } else {return"Điện thoại tắt"
+                        }
+                }
+                }
+                battatdienthoai() {
+                     if (this.status){
+                        this.status = false;
+                    } else {
+                        this.status =true;
+                        }
+                } 
+                guiTN(messTN) {
+                    if (this.pin !=0) {
+                    this.messagegui.push(messTN);
+                    } else { alert("Điện thoại hết pin");
+                }
+                }
+                nhanTN(messTN) {
+                    this.messageNhan.push(messTN);
+                }
+                sacpin(){
+                    this.pin=100;
+                }
+                giampin(){
+                   if(this.pin > 0) {
+                    this.pin = this.pin-1
+                } else {this.pin =0}
+                }
+            }  
+        var mynokia= new Mobile("Nokia", 60, true);
+        var myIphone= new Mobile("Iphone", 90, false);
+       
+            document.getElementById("statusnokia").innerHTML = mynokia.isstatus();
+            document.getElementById("statusiphone").innerHTML = myIphone.isstatus();
+            document.getElementById("sacpinnokia").innerHTML = mynokia.pin;
+            document.getElementById("sacpiniphone").innerHTML = myIphone.pin;
+            document.getElementById("statusnokia").innerHTML = mynokia.isstatus();
+    
+          
+
+        function guitinnhan(){
+            if(mynokia.status && mynokia.pin >0 ) {
+            let messTam = document.getElementById("messmiss1").value;
+            mynokia.guiTN(messTam);
+            myIphone.nhanTN(messTam);
+            document.getElementById("messden").value = "Hộp Thư Đến(" + myIphone.messageNhan.length +")";
+            document.getElementById("NokiaHTD").value = "Hộp Thư Đi(" + mynokia.messagegui.length +")";
+            document.getElementById("messmiss1").value = "";
+            mynokia.giampin();
+            document.getElementById("sacpinnokia").innerHTML = mynokia.pin;
+            
+        } else {  document.getElementById("statusnokia").innerHTML="Điện thoại hết pin"}
+        }
+        function iphonexemtn(){
+            var result=''; 
+            for (let i=0; i< myIphone.messageNhan.length;i++){
+                result += myIphone.messageNhan[i] +"    ";
+            } 
+            document.getElementById("messmiss2").value = result;
+        }
+        function sacnokia() {
+            mynokia.sacpin();
+            document.getElementById("sacpinnokia").innerHTML = mynokia.pin;
+            
+        }
+        function saciphone() {
+            myIphone.sacpin();
+            document.getElementById("sacpiniphone").innerHTML = myIphone.pin;
+        }
+        function battat() {
+            mynokia.battatdienthoai();
+            document.getElementById("statusnokia").innerHTML = mynokia.isstatus();
+
+        }
+     
+        
+      
+    </script>
+</body>
+
+</html>
+ 

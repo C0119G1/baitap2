@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+    <canvas id="myCanvas" width="1256px" height="1278px" style="border:1px solid #832424;">
+
+    <script type="text/javascript">
+    class circle {
+        constructor (_vitri1,_vitri2,_radius){
+            this.vitri1= _vitri1;
+            this.vitri2= _vitri2;
+            this.radius= _radius;
+            this.color = "blue";
+        }
+        createCircle1() {
+            var txt = document.getElementById("myCanvas").getContext("2d");
+            txt.beginPath();
+            txt.arc(this.vitri1, this.vitri2, this.radius, 0, 2* Math.PI);
+            txt.fillStyle = this.color;
+            txt.fill();
+            
+        }
+        ramdomcreate() {
+            this.radius = Math.floor(Math.random() * 80);
+        }
+        getramdomcolor(){
+            var red  = Math.floor(Math.random()*255);
+            var blue = Math.floor(Math.random()*255);
+            var green  = Math.floor(Math.random()*255);
+            this.color="rgb("+ red +","+ blue + ","+ green +")";
+        }
+        ramdomvitri() {
+            this.vitri1 = Math.random() * window.innerWidth;
+            this.vitri2 = Math.random() * window.innerHeight;
+        }
+        createCircle2() {
+            var txt = document.getElementById("myCanvas").getContext("2d");
+            txt.beginPath();
+            txt.arc(this.vitri1, this.vitri2, this.radius, 0, 2* Math.PI);
+            txt.fillStyle = this.color;
+            txt.fill();
+        }
+    	
+    }
+            var mycircle = new circle(500,250,90);
+            mycircle.ramdomcreate();
+            mycircle.ramdomvitri()
+            mycircle.getramdomcolor();
+            mycircle.createCircle1();
+           
+
+            var mycircle = new circle(550,250,90);
+            mycircle.ramdomcreate();
+            mycircle.getramdomcolor();
+            mycircle.createCircle2();
+        
+        function draw() {
+            var mycircle = new circle(500,250,90);
+            mycircle.ramdomcreate();
+            mycircle.ramdomvitri()
+            mycircle.getramdomcolor();
+            mycircle.createCircle1();
+           
+
+            var mycircle = new circle(550,250,90);
+            mycircle.ramdomcreate();
+            mycircle.getramdomcolor();
+            mycircle.createCircle2();
+        }
+       
+        setInterval(draw,50);
+        
+        init_reload();
+        function init_reload(){
+        setInterval( function() {
+                   window.location.reload();
+ 
+          },2500);
+        }
+
+
+
+        
+
+      
+    
+
+    
+
+
+          
+      
+   
+       
+
+</script>
+</body>
+</html>
